@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHL Assessment Recommendations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .results-container {
+            max-width: 95%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .query-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+        .btn-back {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SHL Assessment Recommendations</h1>
+            <p class="lead">Results for your query</p>
+        </div>
+
+        <div class="results-container">
+            <a href="/" class="btn btn-outline-primary btn-back">← Back to Search</a>
+            
+            <div class="query-box">
+                <h5>Your Query:</h5>
+                <p class="mb-0">{{ query }}</p>
+            </div>
+
+            <h3>Recommended Assessments</h3>
+            <p>Based on your requirements, we found {{ results|length }} relevant assessments:</p>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Assessment Name</th>
+                            <th>Test Type</th>
+                            <th>Remote Testing</th>
+                            <th>Adaptive/IRT</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td><a href="{{ result.url }}" target="_blank">{{ result.name }}</a></td>
+                            <td>{{ result.test_type }}</td>
+                            <td>{{ result.remote }}</td>
+                            <td>{{ result.adaptive }}</td>
+                            <td>{{ result.duration }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-muted py-4 mt-5">
+        <div class="container">
+            <p>SHL Assessment Recommendation System © 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHL Assessment Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .features {
+            margin-top: 40px;
+        }
+        .feature-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+        .input-toggle {
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SHL Assessment Recommendation System</h1>
+            <p class="lead">Find the right assessment for your hiring needs</p>
+        </div>
+
+        <div class="form-container">
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endif %}
+
+            <div class="input-toggle">
+                <div class="btn-group w-100" role="group">
+                    <input type="radio" class="btn-check" name="input_type" id="text_input_toggle" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="text_input_toggle">Enter Text</label>
+                    
+                    <input type="radio" class="btn-check" name="input_type" id="url_input_toggle" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="url_input_toggle">Enter URL</label>
+                </div>
+            </div>
+
+            <form action="/recommend" method="post">
+                <div id="text_input_section">
+                    <div class="mb-3">
+                        <label for="query" class="form-label">Enter your query or job description:</label>
+                        <textarea class="form-control" id="query" name="query" rows="6" placeholder="Example: I am hiring for Java developers who can collaborate effectively with my business teams. Looking for an assessment that can be completed in 40 minutes."></textarea>
+                    </div>
+                </div>
+                
+                <div id="url_input_section" class="hidden">
+                    <div class="mb-3">
+                        <label for="url" class="form-label">Enter a job description URL:</label>
+                        <input type="url" class="form-control" id="url" name="url" placeholder="https://example.com/job-description">
+                        <div class="form-text">We'll extract the job description from the provided URL</div>
+                    </div>
+                </div>
+                
+                <input type="hidden" id="input_method" name="input_method" value="text">
+                <button type="submit" class="btn btn-primary">Get Recommendations</button>
+            </form>
+        </div>
+
+        <div class="row features">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-icon">🔍</div>
+                    <h4>Smart Matching</h4>
+                    <p>Our AI matches your requirements with the most relevant assessments</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-icon">⏱️</div>
+                    <h4>Time-Saving</h4>
+                    <p>Get instant recommendations instead of manual searching</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <div class="feature-icon">📊</div>
+                    <h4>Detailed Information</h4>
+                    <p>View complete details about each recommended assessment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-muted py-4 mt-5">
+        <div class="container">
+            <p>SHL Assessment Recommendation System © 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle between text and URL input methods
+        document.getElementById('text_input_toggle').addEventListener('change', function() {
+            document.getElementById('text_input_section').classList.remove('hidden');
+            document.getElementById('url_input_section').classList.add('hidden');
+            document.getElementById('input_method').value = 'text';
+        });
+        
+        document.getElementById('url_input_toggle').addEventListener('change', function() {
+            document.getElementById('text_input_section').classList.add('hidden');
+            document.getElementById('url_input_section').classList.remove('hidden');
+            document.getElementById('input_method').value = 'url';
+        });
+        
+        // Form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const inputMethod = document.getElementById('input_method').value;
+            let isValid = true;
+            
+            if (inputMethod === 'text') {
+                const queryText = document.getElementById('query').value.trim();
+                if (!queryText) {
+                    alert('Please enter a query or job description.');
+                    isValid = false;
+                }
+            } else {
+                const urlInput = document.getElementById('url').value.trim();
+                if (!urlInput) {
+                    alert('Please enter a URL.');
+                    isValid = false;
+                }
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
