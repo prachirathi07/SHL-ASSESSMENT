@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-text-primary;
+    background-image: radial-gradient(circle at 10% 20%, rgba(38, 56, 105, 0.3) 0%, rgba(17, 24, 39, 0.5) 90%);
+  }
+  h1 {
+    @apply text-4xl font-bold mb-4 text-text-primary;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  h2 {
+    @apply text-3xl font-bold mb-3 text-text-primary;
+  }
+  h3 {
+    @apply text-2xl font-bold mb-2 text-text-primary;
+  }
+  h4 {
+    @apply text-xl font-bold mb-2 text-text-primary;
+  }
+  a {
+    @apply text-primary hover:text-primary-light transition-colors;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-5 py-2.5 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-background hover:bg-primary-light hover:translate-y-[-2px];
+  }
+  .btn-secondary {
+    @apply btn bg-secondary text-background hover:bg-secondary-light hover:translate-y-[-2px];
+  }
+  .btn-outline {
+    @apply btn border border-border text-text-primary hover:bg-surface hover:border-primary;
+  }
+  .card {
+    @apply bg-surface rounded-lg shadow-card p-6 border border-border/30 backdrop-blur-sm hover:shadow-card-hover transition-all duration-300;
+    background-image: linear-gradient(135deg, rgba(60, 60, 60, 0.1) 0%, rgba(60, 60, 60, 0) 100%);
+  }
+  .input {
+    @apply w-full px-4 py-2 border border-border rounded-md bg-card text-text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+  .label {
+    @apply block text-sm font-medium text-text-secondary mb-1;
+  }
+  
+  .glassmorphism {
+    @apply backdrop-blur-md bg-surface/70 border border-border/30;
+  }
+  
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 5px -5px rgba(96, 165, 250, 0.3);
+    }
+    to {
+      box-shadow: 0 0 20px -5px rgba(96, 165, 250, 0.7);
+    }
+  }
+} 

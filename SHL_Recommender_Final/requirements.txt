@@ -1,0 +1,10 @@
+flask
+scikit-learn
+numpy
+pandas
+gunicorn
+python-dotenv
+requests
+beautifulsoup4
+faiss-cpu
+flask-cors
