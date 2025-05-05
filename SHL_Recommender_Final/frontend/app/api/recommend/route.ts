@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 // Backend API URL
-const BACKEND_API_URL = 'http://172.20.10.2:5000/api/recommend';
+const BACKEND_API_URL = 'http://13.201.94.127:5000/api/recommend';
 
 // Get recommendations from the Python backend
 async function getRecommendations(query: string | null, url: string | null) {
