@@ -35,6 +35,9 @@
         .btn-back {
             margin-bottom: 20px;
         }
+        .btn-view {
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -65,17 +68,25 @@
                             <th>Remote Testing</th>
                             <th>Adaptive/IRT</th>
                             <th>Duration</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for result in results %}
                         <tr>
                             <td>{{ loop.index }}</td>
-                            <td><a href="{{ result.url }}" target="_blank">{{ result.name }}</a></td>
+                            <td>{{ result.name }}</td>
                             <td>{{ result.test_type }}</td>
                             <td>{{ result.remote }}</td>
                             <td>{{ result.adaptive }}</td>
                             <td>{{ result.duration }}</td>
+                            <td>
+                                {% if result.url %}
+                                <a href="{{ result.url }}" class="btn btn-primary btn-sm btn-view" target="_blank">View Assignment</a>
+                                {% else %}
+                                <span class="text-muted">No URL available</span>
+                                {% endif %}
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>

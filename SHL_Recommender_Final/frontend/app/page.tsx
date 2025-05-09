@@ -192,14 +192,26 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <a 
-                  href={assessment.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-block text-center"
-                >
-                  View Assessment
-                </a>
+                {assessment.url ? (
+                  <a 
+                    href={assessment.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      console.log('Redirecting to:', assessment.url);
+                    }}
+                    className="btn-primary inline-block text-center"
+                  >
+                    View Assessment
+                  </a>
+                ) : (
+                  <button
+                    className="btn-primary inline-block text-center opacity-50"
+                    disabled
+                  >
+                    No URL Available
+                  </button>
+                )}
               </div>
             ))}
           </div>

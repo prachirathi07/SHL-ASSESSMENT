@@ -28,7 +28,15 @@ async function getRecommendations(query: string | null, url: string | null) {
     }
     
     const data = await response.json();
-    console.log('Backend API response:', data);
+    
+    // Log the URLs from the response data
+    if (data.recommendations) {
+      console.log('Received recommendations with URLs:');
+      data.recommendations.forEach((rec: any, index: number) => {
+        console.log(`[${index + 1}] ${rec.name}: URL = ${rec.url}`);
+      });
+    }
+    
     return data;
   } catch (error) {
     console.error('Error fetching recommendations:', error);
@@ -49,6 +57,26 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await getRecommendations(query, url);
+    
+    // Process URLs to ensure they're valid
+    if (data.recommendations) {
+      data.recommendations = data.recommendations.map((rec: any) => {
+        // Ensure URL is properly formatted
+        if (rec.url && typeof rec.url === 'string') {
+          // If URL doesn't start with http:// or https://, add https://
+          if (!rec.url.match(/^https?:\/\//)) {
+            rec.url = 'https://' + rec.url;
+          }
+          
+          console.log(`Processed URL for ${rec.name}: ${rec.url}`);
+        } else {
+          console.log(`No valid URL for ${rec.name}`);
+        }
+        
+        return rec;
+      });
+    }
+    
     return NextResponse.json(data);
   } catch (error) {
     console.error('Error processing request:', error);
