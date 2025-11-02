@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: shl-recommender-api
+    env: python
+    buildCommand: pip install -r requirements.txt && python rag_recommender/build_tfidf.py
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: PYTHONPATH
+        value: /opt/render/project/src
+    disk:
+      name: shl-recommender-disk
+      mountPath: /opt/render/project/src
+      sizeGB: 1
+

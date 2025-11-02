@@ -1,0 +1,132 @@
+{
+  "direct_match_patterns": {
+    "(?:ai|artificial intelligence|ml|machine learning)\\s+(?:engineer|developer|intern)": [
+      "Software Development Fundamentals - Python (New)",
+      "Occupational Personality Questionnaire OPQ32r",
+      "Technology Professional 8.0 Job Focused Assessment",
+      "Verify - Verbal Ability - Next Generation",
+      "Python (New)",
+      "SHL Verify Interactive - Inductive Reasoning",
+      "Data Science (New)",
+      "Critical Reasoning Skill Test"
+    ],
+    "(?:deep learning|neural networks|nlp|natural language processing|transformers|llm)": [
+      "Software Development Fundamentals - Python (New)",
+      "Technology Professional 8.0 Job Focused Assessment",
+      "Python (New)",
+      "SHL Verify Interactive - Inductive Reasoning",
+      "Data Science (New)",
+      "Computer Science (New)",
+      "Critical Reasoning Skill Test"
+    ],
+    "(?:data\\s+scien(?:ce|tist))": [
+      "Data Science (New)",
+      "Software Development Fundamentals - Python (New)",
+      "Python (New)",
+      "SHL Verify Interactive - Inductive Reasoning",
+      "Verify - Numerical Ability"
+    ],
+    "bank\\s+(?:administrative|admin|assistant|clerk)": [
+      "Administrative Professional - Short Form",
+      "Bank Administrative Assistant - Short Form",
+      "Financial Professional - Short Form",
+      "General Entry Level – Data Entry 7.0 Solution",
+      "Basic Computer Literacy (Windows 10) (New)",
+      "Verify - Numerical Ability"
+    ],
+    "icici\\s+bank": [
+      "Bank Administrative Assistant - Short Form",
+      "Administrative Professional - Short Form",
+      "Financial Professional - Short Form",
+      "General Entry Level – Data Entry 7.0 Solution",
+      "Basic Computer Literacy (Windows 10) (New)",
+      "Verify - Numerical Ability"
+    ],
+    "java\\s+(?:developer|programming|coder|engineer)": [
+      "Core Java (Entry Level) (New)",
+      "Core Java (Advanced Level) (New)",
+      "Java 8 (New)",
+      "Agile Software Development",
+      "Enterprise Java Beans (New)"
+    ],
+    "(?:qa|quality assurance|test)\\s+(?:engineer|automation)": [
+      "Automata Selenium",
+      "Automata Front End",
+      "Selenium (New)",
+      "Manual Testing (New)"
+    ],
+    "(?:coo|chief operating officer)": [
+      "Motivation Questionnaire MQM5",
+      "Global Skills Assessment",
+      "OPQ Leadership Report"
+    ],
+    "cultural(?:\\s+fit|ly\\s+right\\s+fit)": [
+      "Motivation Questionnaire MQM5",
+      "Global Skills Assessment",
+      "OPQ Leadership Report",
+      "Occupational Personality Questionnaire OPQ32r",
+      "Graduate 8.0 Job Focused Assessment"
+    ],
+    "(?:content|seo)\\s+(?:writer|writing)": [
+      "Search Engine Optimization (New)",
+      "Drupal (New)",
+      "English Comprehension (New)"
+    ],
+    "radio\\s+(?:station|programming|manager)": [
+      "Verify - Verbal Ability - Next Generation",
+      "SHL Verify Interactive - Inductive Reasoning",
+      "Occupational Personality Questionnaire OPQ32r"
+    ],
+    "(?:sales|marketing)\\s+(?:role|position|job)": [
+      "Entry Level Sales Solution",
+      "Sales & Service Phone Simulation",
+      "Sales & Service Phone Solution",
+      "Entry level Sales 7.1 (International)",
+      "Entry Level Sales Sift Out 7.1",
+      "Sales Representative Solution",
+      "Sales Support Specialist Solution",
+      "Technical Sales Associate Solution"
+    ],
+    "(?:graduate|new graduate).*(?:sales|marketing)": [
+      "Entry Level Sales Solution",
+      "Entry level Sales 7.1 (International)",
+      "Entry Level Sales Sift Out 7.1",
+      "Sales & Service Phone Simulation",
+      "Sales & Service Phone Solution",
+      "SVAR - Spoken English (Indian Accent) (New)"
+    ]
+  },
+  "special_assessments": {
+    "Global Skills Assessment": ["global", "international", "cultural", "china", "coo", "chief operating officer", "executive"],
+    "Motivation Questionnaire MQM5": ["motivation", "personality", "cultural fit", "coo", "chief operating officer", "executive"],
+    "Graduate 8.0 Job Focused Assessment": ["graduate", "entry level", "job focused", "new graduate"],
+    "Automata - Fix (New)": ["automata", "programming", "code", "fix", "java", "developer", "qa"],
+    "Technology Professional 8.0 Job Focused Assessment": ["technology", "professional", "tech", "IT", "java", "software", "developer", "ai", "machine learning", "artificial intelligence", "ml", "data science", "python"],
+    "English Comprehension (New)": ["english", "language", "comprehension", "content", "writing", "communication"],
+    "Entry Level Sales Sift Out 7.1": ["sales", "entry", "sift", "graduate", "new hire"],
+    "Entry level Sales 7.1 (International)": ["sales", "international", "entry level", "global"],
+    "Sales Representative Solution": ["sales", "representative", "solution", "sales rep", "sales position"],
+    "Sales Support Specialist Solution": ["sales", "support", "specialist", "sales position"],
+    "Technical Sales Associate Solution": ["technical", "sales", "associate", "sales position"],
+    "Bank Administrative Assistant - Short Form": ["bank", "administrative", "assistant", "admin", "clerk", "icici"],
+    "Administrative Professional - Short Form": ["administrative", "professional", "admin", "assistant", "clerk", "bank"],
+    "Financial Professional - Short Form": ["financial", "professional", "bank", "finance", "clerk", "assistant"],
+    "General Entry Level – Data Entry 7.0 Solution": ["entry level", "data entry", "clerical", "admin", "assistant"],
+    "Python (New)": ["python", "programming", "developer", "software engineer", "data science", "machine learning", "ai", "artificial intelligence", "ml", "coding"],
+    "Software Development Fundamentals - Python (New)": ["python", "software development", "programming", "developer", "machine learning", "ai", "artificial intelligence", "ml", "data science"],
+    "Data Science (New)": ["data science", "machine learning", "analytics", "python", "statistics", "ai", "artificial intelligence", "ml", "predictive modeling", "data scientist"],
+    "SHL Verify Interactive - Inductive Reasoning": ["reasoning", "problem solving", "logical thinking", "patterns", "analytical", "ai", "machine learning", "technical", "developer"],
+    "Computer Science (New)": ["computer science", "algorithms", "data structures", "programming", "software engineering", "ai", "machine learning", "developer"]
+  },
+  "role_skill_mappings": {
+    "java developer": ["java", "core java", "enterprise java", "spring", "hibernate", "junit", "programming", "software development"],
+    "qa engineer": ["testing", "quality assurance", "selenium", "automation testing", "manual testing", "test cases", "qa", "qc"],
+    "sales": ["sales", "customer service", "negotiation", "pitching", "closing", "account management", "crm"],
+    "content writer": ["writing", "content creation", "seo", "editing", "copywriting", "blogging", "social media"],
+    "data scientist": ["python", "r", "statistics", "machine learning", "data analysis", "sql", "big data"],
+    "manager": ["leadership", "management", "team building", "strategy", "operations", "planning", "budgeting"],
+    "finance": ["accounting", "financial analysis", "budgeting", "forecasting", "excel", "financial reporting"],
+    "administrator": ["administration", "clerical", "data entry", "office management", "documentation"]
+  }
+}
+

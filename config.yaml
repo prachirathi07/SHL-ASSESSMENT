@@ -1,0 +1,65 @@
+# SHL Assessment Recommendation System Configuration
+
+# Scoring weights for hybrid ranking
+scoring:
+  # Skill matching weights
+  skill_match_base: 0.35
+  skill_match_technical: 0.25
+  skill_match_personality: 0.3
+  
+  # Context matching weights
+  context_technical: 0.3
+  context_management: 0.3
+  context_sales: 0.35
+  context_administrative: 0.35
+  context_creative: 0.35
+  
+  # Seniority matching weights
+  seniority_junior: 0.4
+  seniority_mid: 0.25
+  seniority_senior: 0.4
+  
+  # Pattern matching boost
+  pattern_match_boost: 3.0
+  
+  # Duration matching
+  duration_match_boost: 0.3
+  duration_penalty_factor: 0.5
+  duration_tolerance: 0.3
+
+# Assessment matching boosts (from assessment_matching.py)
+assessment_matching:
+  category_match_boost: 2.8
+  test_type_match_boost: 1.85
+  duration_close_match: 2.25
+  duration_approximate_match: 1.75
+  duration_range_match: 1.4
+  exact_name_match: 1.5
+  remote_preference: 1.25
+  adaptive_preference: 1.25
+  complete_info_boost: 1.15
+
+# Model paths
+model_paths:
+  tfidf_model: "tfidf_model.pkl"
+  tfidf_matrix: "tfidf_matrix.npy"
+  tfidf_texts: "tfidf_texts.pkl"
+  assessment_df: "assessment_df.pkl"
+  assessment_csv: "rag_recommender/data/assessment.csv"
+
+# API settings
+api:
+  default_top_k: 10
+  max_top_k: 20
+  min_top_k: 1
+
+# Query expansion settings
+query_expansion:
+  enabled: true
+  min_word_length: 4
+
+# Logging
+logging:
+  level: "INFO"
+  format: "[%(asctime)s]: %(message)s"
+
