@@ -1,4 +1,7 @@
-flask
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
 scikit-learn
 numpy
 pandas
@@ -7,4 +10,3 @@ python-dotenv
 requests
 beautifulsoup4
 faiss-cpu
-flask-cors

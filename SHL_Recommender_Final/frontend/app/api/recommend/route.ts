@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Backend API URL
-const BACKEND_API_URL = 'http://13.201.94.127:5000/api/recommend';
+// Backend API URL - Change this to your Render backend URL when deploying
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000/api/recommend';
 
 // Get recommendations from the Python backend
 async function getRecommendations(query: string | null, url: string | null) {
