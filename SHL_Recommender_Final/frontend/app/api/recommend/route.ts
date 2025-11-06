@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Backend API URL - Change this to your Render backend URL when deploying
-const BACKEND_API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000/api/recommend';
+// Backend API URL - Uses Render URL in production, localhost in development
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 
+  (process.env.NODE_ENV === 'production' 
+    ? 'https://shl-assessment-1-jk29.onrender.com/api/recommend'
+    : 'http://localhost:5000/api/recommend');
 
 // Get recommendations from the Python backend
 async function getRecommendations(query: string | null, url: string | null) {
